@@ -9,7 +9,7 @@ import corte from './assets/corte.png';
 import corte2 from './assets/corte2.png';
 import corte3 from './assets/corte3.png';
 import corte4 from './assets/corte4.png';
-
+import faixada from './assets/faixada.png';
 // ── DATA ─────────────────────────────────────────────────────────────────────
 const TEAM = [
   {
@@ -84,15 +84,12 @@ const SERVICES = [
 ];
 
 const GALLERY = [
-  { img: gallery1, label: 'Degradê Clássico' },
-  { img: gallery2, label: 'Low Fade' },
-  { img: gallery3, label: 'Risco + Fade' },
-  { img: gallery4, label: 'Pompadour + Linhas' },
-  { img: gallery1, label: 'Degradê Moderno' },
-  { img: gallery2, label: 'Mid Fade' },
-  { img: gallery3, label: 'Undercut' },
-  { img: gallery4, label: 'Side Part' },
-  { img: gallery1, label: 'Fade Degradê' },
+  { img: corte, label: 'Degradê Clássico' },
+  { img: corte2, label: 'Low Fade' },
+  { img: corte3, label: 'Risco + Fade' },
+  { img: corte4, label: 'Pompadour + Linhas' },
+  { img: corte, label: 'Degradê Moderno' },
+  { img: corte2, label: 'Mid Fade' },
 ];
 
 const NAV_LINKS = [
@@ -284,9 +281,9 @@ export default function App() {
             </div>
 
             <div className="sobre-visual reveal">
-              <div className="sobre-deco">
-                <div className="sobre-icon">💈</div>
-              </div>
+          
+                <img className="sobre-img" src={faixada} alt="faixada" />
+             
             </div>
           </div>
         </div>
