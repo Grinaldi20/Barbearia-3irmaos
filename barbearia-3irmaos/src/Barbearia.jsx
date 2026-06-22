@@ -64,7 +64,7 @@ const STATS = [
 ];
 
 const NAV_LINKS = [
-  { label: 'Início',   href: '#hero'       },
+  { label: 'Início',   href: '#Inicio'       },
   { label: 'Sobre',    href: '#sobre'      },
   { label: 'Equipe',   href: '#equipe'     },
   { label: 'Serviços', href: '#servicos'   },
@@ -157,7 +157,7 @@ export default function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <section id="hero">
+      <section id="Inicio">
         <div className="hero-bg" />
         <div className="hero-lines" />
         <div className="hero-content">
