@@ -856,15 +856,32 @@ footer {
   /* ──────────────────────────────────────────────────────────────
      ALTERAÇÃO 2 — EQUIPE mobile: 3 cards lado a lado, compactos
   ────────────────────────────────────────────────────────────── */
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .team-card {
+    border-radius: 12px;
+  }
+
+  .team-img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .team-info {
+    padding: 14px;
+  }
+
+  .team-name {
+    font-size: 1rem;
+  }
+
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
-  .team-card { border-radius: 8px; }
-  .team-img  { aspect-ratio: 3 / 4; }   /* um pouco menos alto */
-  .team-info { padding: 10px 8px; }
-  .team-name { font-size: .82rem; margin-bottom: 2px; }
-  .team-role { font-size: .62rem; letter-spacing: .05em; margin-bottom: 6px; }
   .team-desc { display: none; }          /* remove a descrição para não sobrecarregar */
 
   /* SERVIÇOS: lista mais compacta */
