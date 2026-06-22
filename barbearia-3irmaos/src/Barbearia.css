@@ -930,9 +930,11 @@ footer {
 }
 
 .btn-whatsapp {
-  font-size: .75rem;
-  padding: 12px 10px;
-  letter-spacing: .04em;
+.btn-whatsapp {
+  white-space: nowrap;
+  font-size: .65rem;
+  padding: 10px 6px;
+}
 }
 
   /* MAPA */

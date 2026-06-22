@@ -23,14 +23,14 @@ const TEAM = [
   {
     img: barber2,
     name: 'Andre',
-    desc: 'Expert em desenhos e pigmentação, transformando o visual com criatividade e precisão.',
+    desc: 'Especialista em cortes clássicos e modernos, com foco em degradê e acabamento perfeito.',
     instagram: '@Andrebarber',
     whatsapp: '5500000000000',
   },
   {
     img: barber3,
     name: 'Sandro',
-    desc: 'Referência em barba e tratamentos capilares, proporcionando uma experiência completa.',
+    desc: 'Especialista em cortes clássicos e modernos, com foco em degradê e acabamento perfeito.',
     instagram: '@Sandrobarber',
     whatsapp: '5500000000000',
   },
@@ -161,7 +161,7 @@ export default function App() {
         <div className="hero-bg" />
         <div className="hero-lines" />
         <div className="hero-content">
-          <div className="hero-badge"><span>✦</span> Barbearia Premium</div>
+          <div className="hero-badge"><span>✦</span> Barbearia 3 Irmãos</div>
           <h1 className="hero-title">
             Seu estilo
             <em>começa aqui.</em>
