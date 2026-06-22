@@ -15,26 +15,23 @@ import faixada from './assets/faixada.png';
 const TEAM = [
   {
     img: barber1,
-    name: 'Rafael Silva',
-    role: 'Master Barber',
+    name: 'Anderson',
     desc: 'Especialista em cortes clássicos e modernos, com foco em degradê e acabamento perfeito.',
-    instagram: '@rafaelbarber',
+    instagram: '@Andersonbarber',
     whatsapp: '5500000000000',
   },
   {
     img: barber2,
-    name: 'Lucas Mendes',
-    role: 'Barber Stylist',
+    name: 'Andre',
     desc: 'Expert em desenhos e pigmentação, transformando o visual com criatividade e precisão.',
-    instagram: '@lucasbarber',
+    instagram: '@Andrebarber',
     whatsapp: '5500000000000',
   },
   {
     img: barber3,
-    name: 'Mateus Costa',
-    role: 'Senior Barber',
+    name: 'Sandro',
     desc: 'Referência em barba e tratamentos capilares, proporcionando uma experiência completa.',
-    instagram: '@mateusbarber',
+    instagram: '@Sandrobarber',
     whatsapp: '5500000000000',
   },
 ];
@@ -184,7 +181,6 @@ export default function App() {
             </a>
           </div>
         </div>
-        <div className="scroll-hint">Role para baixo</div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
@@ -328,7 +324,7 @@ export default function App() {
                 <img className="contact-img" src={member.img} alt={member.name} loading="lazy" />
                 <div className="contact-info">
                   <div className="contact-name">{member.name}</div>
-                  <div className="contact-role">{member.role}</div>
+              
                   <div className="contact-socials">
                     <a href="#instagram">📸 {member.instagram}</a>
                     <a href="#whatsapp">💬 WhatsApp</a>
@@ -363,7 +359,7 @@ export default function App() {
                   <div className="location-label">Endereço</div>
                   <div className="location-value">
                     Rua das Palmeiras, 123<br />
-                    Centro — Osvaldo Cruz, SP
+                    Jamil do Alibi , Tupã/SP
                   </div>
                 </div>
               </div>
