@@ -157,7 +157,7 @@ export default function App() {
       </nav>
 
       {/* ── HERO ── */}
-      <section id="Inicio">
+      <section id="Inicio" className="hero">
         <div className="hero-bg" />
         <div className="hero-lines" />
         <div className="hero-content">
