@@ -877,11 +877,6 @@ footer {
   .team-name {
     font-size: 1rem;
   }
-
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
   .team-desc { display: none; }          /* remove a descrição para não sobrecarregar */
 
   /* SERVIÇOS: lista mais compacta */
