@@ -10,6 +10,7 @@ import corte2 from './assets/corte2.png';
 import corte3 from './assets/corte3.png';
 import corte4 from './assets/corte4.png';
 import faixada from './assets/faixada.png';
+
 // ── DATA ─────────────────────────────────────────────────────────────────────
 const TEAM = [
   {
@@ -38,49 +39,14 @@ const TEAM = [
   },
 ];
 
+// ── ALTERAÇÃO 4: Serviços como lista simples (sem cards) ──────────────────────
 const SERVICES = [
-  {
-    icon: '💈',
-    name: 'Corte Masculino',
-    desc: 'Cortes modernos e clássicos executados com precisão e atenção aos detalhes.',
-    price: 'R$ 30',
-    cents: ',00',
-  },
-  {
-    icon: '🪒',
-    name: 'Barba',
-    desc: 'Modelagem e acabamento de barba com navalha e produtos de qualidade premium.',
-    price: 'R$ 20',
-    cents: ',00',
-  },
-  {
-    icon: '✂️',
-    name: 'Corte + Barba',
-    desc: 'O combo perfeito para um visual completo e renovado do início ao fim.',
-    price: 'R$ 45',
-    cents: ',00',
-  },
-  {
-    icon: '🎨',
-    name: 'Pigmentação',
-    desc: 'Pigmentação capilar para dar cor e profundidade ao corte com resultado natural.',
-    price: 'R$ 15',
-    cents: ',00',
-  },
-  {
-    icon: '👁️',
-    name: 'Sobrancelha',
-    desc: 'Design de sobrancelha masculino para um look mais alinhado e sofisticado.',
-    price: 'R$ 10',
-    cents: ',00',
-  },
-  {
-    icon: '👦',
-    name: 'Corte Infantil',
-    desc: 'Atendimento especial para os pequenos com paciência, cuidado e muito carinho.',
-    price: 'R$ 25',
-    cents: ',00',
-  },
+  { icon: '✂', name: 'Corte Masculino',  price: 'R$ 30,00' },
+  { icon: '✂', name: 'Barba',            price: 'R$ 20,00' },
+  { icon: '✂', name: 'Corte + Barba',    price: 'R$ 45,00' },
+  { icon: '✂', name: 'Pigmentação',      price: 'R$ 15,00' },
+  { icon: '✂', name: 'Sobrancelha',      price: 'R$ 10,00' },
+  { icon: '✂', name: 'Corte Infantil',   price: 'R$ 25,00' },
 ];
 
 const GALLERY = [
@@ -88,17 +54,25 @@ const GALLERY = [
   { img: corte2, label: 'Low Fade' },
   { img: corte3, label: 'Risco + Fade' },
   { img: corte4, label: 'Pompadour + Linhas' },
-  { img: corte, label: 'Degradê Moderno' },
+  { img: corte3, label: 'Degradê Moderno' },
   { img: corte2, label: 'Mid Fade' },
+
+];
+
+// ── ALTERAÇÃO 1: Stats atualizadas ───────────────────────────────────────────
+const STATS = [
+  { num: '+5',    label: 'Anos de Experiência'   },
+  { num: '+5000', label: 'Cortes Realizados'     },
+  { num: '+1000', label: 'Clientes Satisfeitos'  },
 ];
 
 const NAV_LINKS = [
-  { label: 'Início', href: '#hero' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Equipe', href: '#equipe' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Galeria', href: '#galeria' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Início',   href: '#hero'       },
+  { label: 'Sobre',    href: '#sobre'      },
+  { label: 'Equipe',   href: '#equipe'     },
+  { label: 'Serviços', href: '#servicos'   },
+  { label: 'Galeria',  href: '#galeria'    },
+  { label: 'Contato',  href: '#contato'    },
 ];
 
 // ── HOOK: Scroll Reveal ───────────────────────────────────────────────────────
@@ -132,83 +106,54 @@ function scrollTo(href) {
 // APP
 // ═══════════════════════════════════════════════════════════════════════════════
 export default function App() {
-  const [scrolled, setScrolled] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled,    setScrolled]    = useState(false);
+  const [drawerOpen,  setDrawerOpen]  = useState(false);
 
-  // Header scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when drawer is open
   useEffect(() => {
     document.body.style.overflow = drawerOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [drawerOpen]);
 
-  // Scroll reveal
   useReveal();
 
-  function closeDrawer() {
-    setDrawerOpen(false);
-  }
-
-  function handleNavClick(href) {
-    closeDrawer();
-    scrollTo(href);
-  }
+  const closeDrawer   = () => setDrawerOpen(false);
+  const handleNavClick = (href) => { closeDrawer(); scrollTo(href); };
 
   return (
     <>
       {/* ── HEADER ── */}
       <header className={scrolled ? 'scrolled' : ''}>
-        <button
-          className="logo"
-          onClick={() => scrollTo('#hero')}
-          aria-label="Ir para o início"
-        >
+        <button className="logo" onClick={() => scrollTo('#hero')} aria-label="Ir para o início">
           3 <span>Irmãos</span>
         </button>
 
         <nav className="desktop">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-            >
+            <a key={link.href} href={link.href}
+               onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}>
               {link.label}
             </a>
           ))}
         </nav>
 
-        <button
-          className={`hamburger${drawerOpen ? ' open' : ''}`}
-          onClick={() => setDrawerOpen((prev) => !prev)}
-          aria-label="Menu"
-        >
-          <span />
-          <span />
-          <span />
+        <button className={`hamburger${drawerOpen ? ' open' : ''}`}
+                onClick={() => setDrawerOpen((p) => !p)} aria-label="Menu">
+          <span /><span /><span />
         </button>
       </header>
 
-      {/* ── OVERLAY ── */}
-      <div
-        className={`overlay${drawerOpen ? ' show' : ''}`}
-        onClick={closeDrawer}
-      />
-
-      {/* ── MOBILE DRAWER ── */}
+      {/* ── OVERLAY + DRAWER ── */}
+      <div className={`overlay${drawerOpen ? ' show' : ''}`} onClick={closeDrawer} />
       <nav className={`drawer${drawerOpen ? ' open' : ''}`}>
         {NAV_LINKS.map((link) => (
-          <a
-            key={link.href}
-            href={link.href}
-            onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-          >
+          <a key={link.href} href={link.href}
+             onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}>
             {link.label}
           </a>
         ))}
@@ -219,9 +164,7 @@ export default function App() {
         <div className="hero-bg" />
         <div className="hero-lines" />
         <div className="hero-content">
-          <div className="hero-badge">
-            <span>✦</span> Barbearia Premium
-          </div>
+          <div className="hero-badge"><span>✦</span> Barbearia Premium</div>
           <h1 className="hero-title">
             Seu estilo
             <em>começa aqui.</em>
@@ -231,18 +174,12 @@ export default function App() {
             para valorizar sua aparência.
           </p>
           <div className="hero-btns">
-            <a
-              href="#contato"
-              className="btn-gold"
-              onClick={(e) => { e.preventDefault(); scrollTo('#contato'); }}
-            >
+            <a href="#contato" className="btn-gold"
+               onClick={(e) => { e.preventDefault(); scrollTo('#contato'); }}>
               Agendar Horário
             </a>
-            <a
-              href="#servicos"
-              className="btn-outline"
-              onClick={(e) => { e.preventDefault(); scrollTo('#servicos'); }}
-            >
+            <a href="#servicos" className="btn-outline"
+               onClick={(e) => { e.preventDefault(); scrollTo('#servicos'); }}>
               Ver Serviços
             </a>
           </div>
@@ -250,11 +187,19 @@ export default function App() {
         <div className="scroll-hint">Role para baixo</div>
       </section>
 
-      {/* ── SOBRE ── */}
+      {/* ══════════════════════════════════════════════════════════════════════
+          ALTERAÇÃO 1 — SOBRE
+          Desktop : texto (esq) + imagem (dir) na mesma linha;
+                    stats em linha cheia abaixo dos dois.
+          Mobile  : apenas texto + stats (imagem oculta).
+      ══════════════════════════════════════════════════════════════════════ */}
       <section id="sobre">
         <div className="section-inner">
-          <div className="sobre-grid">
-            <div className="sobre-text reveal">
+
+          {/* linha: texto | imagem */}
+          <div className="sobre-top reveal">
+
+            <div className="sobre-text">
               <p className="eyebrow">Nossa História</p>
               <h2 className="section-title">
                 Sobre a Barbearia<br />3 Irmãos
@@ -266,30 +211,37 @@ export default function App() {
                 objetivo é proporcionar uma experiência diferenciada, unindo técnica,
                 estilo e atenção aos detalhes.
               </p>
-              <div className="stats">
-                {[
-                  { num: '+500', label: 'Clientes Atendidos' },
-                  { num: '+3', label: 'Anos de Experiência' },
-                  { num: '100%', label: 'Dedicação' },
-                ].map((s) => (
-                  <div className="stat-card" key={s.label}>
-                    <div className="stat-num">{s.num}</div>
-                    <div className="stat-label">{s.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
 
-            <div className="sobre-visual reveal">
-          
-                <img className="sobre-img" src={faixada} alt="faixada" />
-             
+            {/* imagem: oculta no mobile via CSS */}
+            <div className="sobre-visual">
+              <img
+                className="sobre-img"
+                src={faixada}
+                alt="Barbearia 3 Irmãos"
+                loading="lazy"
+              />
             </div>
           </div>
+
+          {/* stats: linha cheia abaixo, centralizada */}
+          <div className="stats-row reveal">
+            {STATS.map((s) => (
+              <div className="stat-card" key={s.label}>
+                <div className="stat-num">{s.num}</div>
+                <div className="stat-label">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* ── EQUIPE ── */}
+      {/* ══════════════════════════════════════════════════════════════════════
+          ALTERAÇÃO 2 — EQUIPE
+          Desktop : 3 colunas (mantido)
+          Mobile  : 3 cards lado a lado (grid forçado, imagens menores)
+      ══════════════════════════════════════════════════════════════════════ */}
       <section id="equipe">
         <div className="section-inner">
           <div style={{ textAlign: 'center', marginBottom: '56px' }} className="reveal">
@@ -301,12 +253,7 @@ export default function App() {
           <div className="team-grid">
             {TEAM.map((member) => (
               <div className="team-card reveal" key={member.name}>
-                <img
-                  className="team-img"
-                  src={member.img}
-                  alt={member.name}
-                  loading="lazy"
-                />
+                <img className="team-img" src={member.img} alt={member.name} loading="lazy" />
                 <div className="team-info">
                   <div className="team-name">{member.name}</div>
                   <div className="team-role">{member.role}</div>
@@ -318,7 +265,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── SERVIÇOS ── */}
+      {/* ══════════════════════════════════════════════════════════════════════
+          ALTERAÇÃO 4 — SERVIÇOS como lista de texto simples (sem cards)
+      ══════════════════════════════════════════════════════════════════════ */}
       <section id="servicos">
         <div className="section-inner">
           <div style={{ textAlign: 'center', marginBottom: '56px' }} className="reveal">
@@ -327,24 +276,16 @@ export default function App() {
             <div className="section-divider" style={{ margin: '0 auto' }} />
           </div>
 
-          <div className="services-grid">
+          <ul className="services-list reveal">
             {SERVICES.map((svc) => (
-              <div className="service-card reveal" key={svc.name}>
-                <div className="service-icon">{svc.icon}</div>
-                <div className="service-name">{svc.name}</div>
-                <p className="service-desc">{svc.desc}</p>
-                <div className="service-price">
-                  {svc.price}<span>{svc.cents}</span>
-                </div>
-                <button
-                  className="btn-agendar"
-                  onClick={() => window.open('https://wa.me/5500000000000', '_blank')}
-                >
-                  Agendar
-                </button>
-              </div>
+              <li className="service-item" key={svc.name}>
+                <span className="service-item-icon">{svc.icon}</span>
+                <span className="service-item-name">{svc.name}</span>
+                <span className="service-item-dots" aria-hidden="true" />
+                <span className="service-item-price">{svc.price}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -361,16 +302,18 @@ export default function App() {
             {GALLERY.map((item, i) => (
               <div className="gallery-item" key={i}>
                 <img src={item.img} alt={item.label} loading="lazy" />
-                <div className="gallery-overlay">
-                  <span>{item.label}</span>
-                </div>
+                <div className="gallery-overlay"><span>{item.label}</span></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CONTATO ── */}
+      {/* ══════════════════════════════════════════════════════════════════════
+          ALTERAÇÃO 3 — CONTATO
+          Desktop : 3 colunas (mantido)
+          Mobile  : 3 cards lado a lado (compactos)
+      ══════════════════════════════════════════════════════════════════════ */}
       <section id="contato">
         <div className="section-inner">
           <div style={{ textAlign: 'center', marginBottom: '56px' }} className="reveal">
@@ -382,12 +325,7 @@ export default function App() {
           <div className="contact-grid">
             {TEAM.map((member) => (
               <div className="contact-card reveal" key={member.name}>
-                <img
-                  className="contact-img"
-                  src={member.img}
-                  alt={member.name}
-                  loading="lazy"
-                />
+                <img className="contact-img" src={member.img} alt={member.name} loading="lazy" />
                 <div className="contact-info">
                   <div className="contact-name">{member.name}</div>
                   <div className="contact-role">{member.role}</div>
@@ -395,12 +333,8 @@ export default function App() {
                     <a href="#instagram">📸 {member.instagram}</a>
                     <a href="#whatsapp">💬 WhatsApp</a>
                   </div>
-                  <a
-                    href={`https://wa.me/${member.whatsapp}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn-whatsapp"
-                  >
+                  <a href={`https://wa.me/${member.whatsapp}`}
+                     target="_blank" rel="noreferrer" className="btn-whatsapp">
                     Agendar com {member.name.split(' ')[0]}
                   </a>
                 </div>
@@ -410,7 +344,9 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── LOCALIZAÇÃO ── */}
+      {/* ══════════════════════════════════════════════════════════════════════
+          ALTERAÇÃO 5 — LOCALIZAÇÃO com iframe real do Google Maps
+      ══════════════════════════════════════════════════════════════════════ */}
       <section id="localizacao">
         <div className="section-inner">
           <div style={{ textAlign: 'center', marginBottom: '56px' }} className="reveal">
@@ -449,9 +385,18 @@ export default function App() {
               </div>
             </div>
 
-            <div className="map-placeholder reveal">
-              <span>🗺️</span>
-              <p>Google Maps em breve</p>
+            {/* iframe do Google Maps real */}
+            <div className="map-wrapper reveal">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14805.419836109195!2d-50.50425767898558!3d-21.920901513991236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9495c7f4c08e9b4d%3A0x58689cf98c4a12d7!2sBarbearia%203%20Irm%C3%A3os!5e0!3m2!1spt-BR!2sbr!4v1782138174854!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Localização Barbearia 3 Irmãos"
+              />
             </div>
           </div>
         </div>
@@ -469,11 +414,8 @@ export default function App() {
             Agende seu horário e venha conhecer a Barbearia 3 Irmãos. Qualidade e
             estilo que você merece.
           </p>
-          <a
-            href="#contato"
-            className="btn-gold"
-            onClick={(e) => { e.preventDefault(); scrollTo('#contato'); }}
-          >
+          <a href="#contato" className="btn-gold"
+             onClick={(e) => { e.preventDefault(); scrollTo('#contato'); }}>
             Agendar Agora
           </a>
         </div>
@@ -484,32 +426,23 @@ export default function App() {
         <div className="footer-inner">
           <div className="footer-top">
             <div className="footer-brand">
-              <button
-                className="logo"
-                onClick={() => scrollTo('#hero')}
-                style={{ marginBottom: '16px' }}
-              >
+              <button className="logo" onClick={() => scrollTo('#hero')}
+                      style={{ marginBottom: '16px' }}>
                 3 <span>Irmãos</span>
               </button>
-              <p>
-                Barbearia premium com profissionais especializados. Seu estilo é nossa
-                missão.
-              </p>
+              <p>Barbearia premium com profissionais especializados. Seu estilo é nossa missão.</p>
             </div>
 
             <div className="footer-col">
               <h4>Links Rápidos</h4>
               {[
-                { label: 'Início', href: '#hero' },
-                { label: 'Sobre', href: '#sobre' },
+                { label: 'Início',   href: '#hero'     },
+                { label: 'Sobre',    href: '#sobre'    },
                 { label: 'Serviços', href: '#servicos' },
-                { label: 'Contato', href: '#contato' },
+                { label: 'Contato',  href: '#contato'  },
               ].map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-                >
+                <a key={link.href} href={link.href}
+                   onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}>
                   {link.label}
                 </a>
               ))}
