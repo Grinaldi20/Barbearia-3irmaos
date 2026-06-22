@@ -877,7 +877,13 @@ footer {
   .team-name {
     font-size: 1rem;
   }
-  .team-desc { display: none; }          /* remove a descrição para não sobrecarregar */
+  .team-desc { .team-desc {
+  display: block;
+  font-size: .75rem;
+  line-height: 1.5;
+  margin-top: 8px;
+  color: rgba(255,255,255,.7);
+} }          /* remove a descrição para não sobrecarregar */
 
   /* SERVIÇOS: lista mais compacta */
   .service-item       { padding: 16px 4px; gap: 10px; }
@@ -892,20 +898,42 @@ footer {
      ALTERAÇÃO 3 — CONTATO mobile: 3 cards lado a lado, compactos
   ────────────────────────────────────────────────────────────── */
   .contact-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-  .contact-card       { border-radius: 8px; }
-  .contact-img        { aspect-ratio: 3 / 4; }
-  .contact-info       { padding: 10px 6px; }
-  .contact-name       { font-size: .8rem; margin-bottom: 2px; }
-  .contact-role       { font-size: .6rem; letter-spacing: .04em; margin-bottom: 8px; }
-  .contact-socials    { display: none; }    /* oculta redes sociais no mobile */
-  .btn-whatsapp {
-    font-size: .62rem;
-    padding: 8px 6px;
-    letter-spacing: .03em;
-  }
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.contact-card {
+  border-radius: 12px;
+}
+
+.contact-img {
+  aspect-ratio: 4 / 5;
+}
+
+.contact-info {
+  padding: 14px;
+}
+
+.contact-name {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.contact-role {
+  font-size: .72rem;
+  letter-spacing: .08em;
+  margin-bottom: 10px;
+}
+
+.contact-socials {
+  display: none;
+}
+
+.btn-whatsapp {
+  font-size: .75rem;
+  padding: 12px 10px;
+  letter-spacing: .04em;
+}
 
   /* MAPA */
   .map-wrapper  { height: 240px; }
