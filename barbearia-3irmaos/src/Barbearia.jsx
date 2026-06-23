@@ -22,20 +22,21 @@ const TEAM = [
     instagram: '@Anderso.fi2023',
     whatsapp: '5514997086533',
   },
-  {
-    img: barber2,
-    name: 'Andre',
-    desc: 'Profissional especializado em todos os estilos de cortes atuais, sempre buscando entregar um acabamento moderno e alinhado com a personalidade de cada cliente.',
-    instagram: '@Andrebarber',
-    whatsapp: '5514997937853',
-  },
-  {
+   {
     img: barber3,
     name: 'Alessandro',
     desc: 'Especialista em cortes infantis (Kids) e nos estilos de cortes mais atuais, proporcionando qualidade, cuidado e um atendimento diferenciado para todas as idades.',
     instagram: '@alessandro_pereira_da_luz',
     whatsapp: '5514997430056',
   },
+  {
+    img: barber2,
+    name: 'Andre',
+    desc: 'Profissional especializado em todos os estilos de cortes atuais, sempre buscando entregar um acabamento moderno e alinhado com a personalidade de cada cliente.',
+    instagram: '',
+    whatsapp: '5514997937853',
+  },
+
 ];
 
 // ── ALTERAÇÃO 4: Serviços como lista simples (sem cards) ──────────────────────
