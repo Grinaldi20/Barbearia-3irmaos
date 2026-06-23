@@ -10,6 +10,7 @@ import corte2 from './assets/corte2.png';
 import corte3 from './assets/corte3.png';
 import corte4 from './assets/corte4.png';
 import corte5 from './assets/corte5.png';
+import corte6 from './assets/corte6.png';
 import faixada from './assets/faixada.png';
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
@@ -55,7 +56,7 @@ const GALLERY = [
   { img: corte3, label: 'Risco + Fade' },
   { img: corte4, label: 'Pompadour + Linhas' },
   { img: corte5, label: 'Mid Fade' },
-  { img: corte4, label: 'High Fade' },
+  { img: corte6, label: 'High Fade' },
 ];
 
 // ── ALTERAÇÃO 1: Stats atualizadas ───────────────────────────────────────────
@@ -197,16 +198,16 @@ export default function App() {
                     stats em linha cheia abaixo dos dois.
           Mobile  : apenas texto + stats (imagem oculta).
       ══════════════════════════════════════════════════════════════════════ */}
-      <section id="sobre">
+      <section className="sobre" id="sobre">
         <div className="section-inner">
 
           {/* linha: texto | imagem */}
           <div className="sobre-top reveal">
 
             <div className="sobre-text">
-              <p className="eyebrow">Nossa História</p>
+              <h1 className="eyebrow">Nossa História</h1>
               <h2 className="section-title">
-                Sobre a Barbearia<br />3 Irmãos
+                Sobre
               </h2>
               <div className="section-divider" />
               <p>
@@ -245,11 +246,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          ALTERAÇÃO 2 — EQUIPE
-          Desktop : 3 colunas (mantido)
-          Mobile  : 3 cards lado a lado (grid forçado, imagens menores)
-      ══════════════════════════════════════════════════════════════════════ */}
+
       <section id="equipe">
         <div className="section-inner">
           <div style={{ textAlign: 'center', marginBottom: '56px' }} className="reveal">
