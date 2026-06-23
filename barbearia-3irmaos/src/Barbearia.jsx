@@ -48,7 +48,7 @@ const SERVICES = [
   { icon: '✂', name: 'Corte + Pigmentação',    price: 'R$ 40,00' },
   { icon: '✂', name: 'Corte + Luzes',    price: 'R$ 70,00' },
   { icon: '✂', name: 'Corte + Platinado',    price: 'R$ 120,00' },
-  { icon: '✂', name: 'Corte + Alisante',    price: 'R$ 120,00' },
+  { icon: '✂', name: 'Corte + Alisante',    price: 'R$ 60,00' },
 ];
 
 const GALLERY = [
