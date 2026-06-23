@@ -334,8 +334,14 @@ export default function App() {
                   <div className="contact-name">{member.name}</div>
               
                   <div className="contact-socials">
-                    <a href="#instagram">📸 {member.instagram}</a>
-                  </div>
+  <a
+    href={`https://www.instagram.com/${member.instagram.replace("@", "")}/`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+     {member.instagram}
+  </a>
+</div>
                   <a href={`https://wa.me/${member.whatsapp}`}
                      target="_blank" rel="noreferrer" className="btn-whatsapp">
                     Agendar com {member.name.split(' ')[0]}
@@ -375,7 +381,7 @@ export default function App() {
                 <div>
                   <div className="location-label">Horário de Funcionamento</div>
                   <div className="location-value">
-                    Terça a Sábado<br />09h00 às 18h00
+                    Terça a Sábado<br />09h00 às 19h00
                   </div>
                 </div>
               </div>
@@ -443,14 +449,6 @@ export default function App() {
               ))}
             </div>
 
-            <div className="footer-col">
-              <h4>Redes Sociais</h4>
-              <div className="social-links">
-                <a href="#instagram">📸 Instagram</a>
-                <a href="#whatsapp">💬 WhatsApp</a>
-                <a href="#facebook">📘 Facebook</a>
-              </div>
-            </div>
           </div>
 
           <div className="footer-bottom">

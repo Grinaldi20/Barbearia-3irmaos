@@ -32,6 +32,12 @@ body {
   overflow-x: hidden;
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   SEPARAÇÃO ENTRE SEÇÕES — sombra discreta no final de cada bloco
+   Aplica em todas as <section> e no <footer>
+───────────────────────────────────────────────────────────────── */
+
+
 /* ─────────────────────────────────────────
    HEADER
 ───────────────────────────────────────── */
@@ -166,7 +172,6 @@ nav.desktop a:hover::after { width: 100%; }
   text-align: center;
   padding: 120px 24px 80px;
   position: relative;
-  overflow: hidden;
 }
 
 .hero-bg {
@@ -904,7 +909,19 @@ footer {
   .service-item-dots  { display: none; }  /* remove pontilhado no mobile */
 
   /* GALERIA: 3 cols mantidas — gap menor */
-  .gallery-grid { gap: 4px; }
+  @media (max-width: 600px) {
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin: 0 -8px;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.85 / 1;
+  }
+
+}
 
   /* ──────────────────────────────────────────────────────────────
      ALTERAÇÃO 3 — CONTATO mobile: 3 cards lado a lado, compactos
@@ -937,9 +954,7 @@ footer {
   margin-bottom: 10px;
 }
 
-.contact-socials {
-  display: none;
-}
+
 
 .btn-whatsapp {
 .btn-whatsapp {
