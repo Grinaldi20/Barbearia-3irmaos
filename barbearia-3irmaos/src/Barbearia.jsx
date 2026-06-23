@@ -9,6 +9,7 @@ import corte from './assets/corte.png';
 import corte2 from './assets/corte2.png';
 import corte3 from './assets/corte3.png';
 import corte4 from './assets/corte4.png';
+import corte5 from './assets/corte5.png';
 import faixada from './assets/faixada.png';
 
 // ── DATA ─────────────────────────────────────────────────────────────────────
@@ -16,34 +17,36 @@ const TEAM = [
   {
     img: barber1,
     name: 'Anderson',
-    desc: 'Especialista em cortes clássicos e modernos, com foco em degradê e acabamento perfeito.',
-    instagram: '@Andersonbarber',
-    whatsapp: '5500000000000',
+    desc: 'Especialista em penteados e freestyle, trazendo criatividade e estilo em cada detalhe para criar visuais únicos e personalizados.',
+    instagram: '@Anderso.fi2023',
+    whatsapp: '5514997086533',
   },
   {
     img: barber2,
     name: 'Andre',
-    desc: 'Especialista em cortes clássicos e modernos, com foco em degradê e acabamento perfeito.',
+    desc: 'Profissional especializado em todos os estilos de cortes atuais, sempre buscando entregar um acabamento moderno e alinhado com a personalidade de cada cliente.',
     instagram: '@Andrebarber',
-    whatsapp: '5500000000000',
+    whatsapp: '5514997937853',
   },
   {
     img: barber3,
-    name: 'Sandro',
-    desc: 'Especialista em cortes clássicos e modernos, com foco em degradê e acabamento perfeito.',
-    instagram: '@Sandrobarber',
-    whatsapp: '5500000000000',
+    name: 'Alessandro',
+    desc: 'Especialista em cortes infantis (Kids) e nos estilos de cortes mais atuais, proporcionando qualidade, cuidado e um atendimento diferenciado para todas as idades.',
+    instagram: '@alessandro_pereira_da_luz',
+    whatsapp: '5514997430056',
   },
 ];
 
 // ── ALTERAÇÃO 4: Serviços como lista simples (sem cards) ──────────────────────
 const SERVICES = [
-  { icon: '✂', name: 'Corte Masculino',  price: 'R$ 30,00' },
+  { icon: '✂', name: 'Corte Social',  price: 'R$ 25,00' },
+  { icon: '✂', name: 'Corte Sombreado',  price: 'R$ 30,00' },
   { icon: '✂', name: 'Barba',            price: 'R$ 20,00' },
-  { icon: '✂', name: 'Corte + Barba',    price: 'R$ 45,00' },
-  { icon: '✂', name: 'Pigmentação',      price: 'R$ 15,00' },
-  { icon: '✂', name: 'Sobrancelha',      price: 'R$ 10,00' },
-  { icon: '✂', name: 'Corte Infantil',   price: 'R$ 25,00' },
+  { icon: '✂', name: 'Corte + Barba',    price: 'R$ 40,00' },
+  { icon: '✂', name: 'Corte + Pigmentação',    price: 'R$ 40,00' },
+  { icon: '✂', name: 'Corte + Luzes',    price: 'R$ 70,00' },
+  { icon: '✂', name: 'Corte + Platinado',    price: 'R$ 120,00' },
+  { icon: '✂', name: 'Corte + Alisante',    price: 'R$ 120,00' },
 ];
 
 const GALLERY = [
@@ -51,15 +54,14 @@ const GALLERY = [
   { img: corte2, label: 'Low Fade' },
   { img: corte3, label: 'Risco + Fade' },
   { img: corte4, label: 'Pompadour + Linhas' },
-  { img: corte3, label: 'Degradê Moderno' },
-  { img: corte2, label: 'Mid Fade' },
-
+  { img: corte5, label: 'Mid Fade' },
+  { img: corte4, label: 'High Fade' },
 ];
 
 // ── ALTERAÇÃO 1: Stats atualizadas ───────────────────────────────────────────
 const STATS = [
-  { num: '+5',    label: 'Anos de Experiência'   },
-  { num: '+5000', label: 'Cortes Realizados'     },
+  { num: '+7',    label: 'Anos de Experiência'   },
+  { num: '+1000', label: 'Cortes Realizados'     },
   { num: '+1000', label: 'Clientes Satisfeitos'  },
 ];
 
@@ -103,6 +105,12 @@ function scrollTo(href) {
 // APP
 // ═══════════════════════════════════════════════════════════════════════════════
 export default function App() {
+
+  useEffect(() => {
+  document.documentElement.lang = "pt-BR";
+  document.documentElement.setAttribute("translate", "no");
+}, []);
+
   const [scrolled,    setScrolled]    = useState(false);
   const [drawerOpen,  setDrawerOpen]  = useState(false);
 
@@ -126,7 +134,7 @@ export default function App() {
     <>
       {/* ── HEADER ── */}
       <header className={scrolled ? 'scrolled' : ''}>
-        <button className="logo" onClick={() => scrollTo('#hero')} aria-label="Ir para o início">
+         <button className="logo" onClick={() => scrollTo('#hero')} aria-label="Ir para o início">
           3 <span>Irmãos</span>
         </button>
 
@@ -202,10 +210,14 @@ export default function App() {
               </h2>
               <div className="section-divider" />
               <p>
-                A Barbearia 3 Irmãos nasceu da paixão pela profissão e do compromisso
-                em oferecer um atendimento de qualidade para todos os clientes. Nosso
-                objetivo é proporcionar uma experiência diferenciada, unindo técnica,
-                estilo e atenção aos detalhes.
+              A Barbearia 3 Irmãos nasceu em 2019 com o propósito de transformar cortes de cabelo 
+              em uma experiência única, unindo estilo, qualidade e atendimento personalizado. 
+              Desde o início, construímos nossa história com dedicação, buscando sempre acompanhar 
+              as tendências e entregar o melhor para cada cliente.
+
+              Com profissionais especializados em diferentes estilos, nosso compromisso é valorizar 
+              a identidade de cada pessoa, oferecendo cortes modernos, clássicos e um ambiente onde 
+              todos se sintam à vontade.
               </p>
             </div>
 
@@ -252,7 +264,6 @@ export default function App() {
                 <img className="team-img" src={member.img} alt={member.name} loading="lazy" />
                 <div className="team-info">
                   <div className="team-name">{member.name}</div>
-                  <div className="team-role">{member.role}</div>
                   <p className="team-desc">{member.desc}</p>
                 </div>
               </div>
@@ -290,7 +301,7 @@ export default function App() {
         <div className="section-inner">
           <div style={{ textAlign: 'center', marginBottom: '48px' }} className="reveal">
             <p className="eyebrow">Portfólio</p>
-            <h2 className="section-title">Alguns dos nossos trabalhos</h2>
+            <h2 className="section-title">Galeria</h2>
             <div className="section-divider" style={{ margin: '0 auto' }} />
           </div>
 
@@ -327,7 +338,6 @@ export default function App() {
               
                   <div className="contact-socials">
                     <a href="#instagram">📸 {member.instagram}</a>
-                    <a href="#whatsapp">💬 WhatsApp</a>
                   </div>
                   <a href={`https://wa.me/${member.whatsapp}`}
                      target="_blank" rel="noreferrer" className="btn-whatsapp">
@@ -358,8 +368,8 @@ export default function App() {
                 <div>
                   <div className="location-label">Endereço</div>
                   <div className="location-value">
-                    Rua das Palmeiras, 123<br />
-                    Jamil do Alibi , Tupã/SP
+                    R. Ernesto Coquemala, 123<br />
+                     Conj. Hab. Papa João Paulo II, Tupã/SP
                   </div>
                 </div>
               </div>
@@ -368,15 +378,8 @@ export default function App() {
                 <div>
                   <div className="location-label">Horário de Funcionamento</div>
                   <div className="location-value">
-                    Segunda a Sábado<br />09h00 às 20h00
+                    Terça a Sábado<br />09h00 às 18h00
                   </div>
-                </div>
-              </div>
-              <div className="location-item">
-                <div className="location-icon">📱</div>
-                <div>
-                  <div className="location-label">Telefone / WhatsApp</div>
-                  <div className="location-value">(18) 99999-0000</div>
                 </div>
               </div>
             </div>
@@ -422,10 +425,9 @@ export default function App() {
         <div className="footer-inner">
           <div className="footer-top">
             <div className="footer-brand">
-              <button className="logo" onClick={() => scrollTo('#hero')}
-                      style={{ marginBottom: '16px' }}>
-                3 <span>Irmãos</span>
-              </button>
+             <button className="logo" onClick={() => scrollTo('#hero')} aria-label="Ir para o início">
+          3 <span>Irmãos</span>
+        </button>
               <p>Barbearia premium com profissionais especializados. Seu estilo é nossa missão.</p>
             </div>
 
