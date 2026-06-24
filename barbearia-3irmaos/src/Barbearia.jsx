@@ -52,12 +52,12 @@ const SERVICES = [
 ];
 
 const GALLERY = [
-  { img: corte, label: 'Degradê Clássico' },
-  { img: corte2, label: 'Low Fade' },
-  { img: corte3, label: 'Risco + Fade' },
-  { img: corte4, label: 'Pompadour + Linhas' },
-  { img: corte5, label: 'Mid Fade' },
-  { img: corte6, label: 'High Fade' },
+  { img: corte, label: '' },
+  { img: corte2, label: '' },
+  { img: corte3, label: '' },
+  { img: corte4, label: '' },
+  { img: corte5, label: ' ' },
+  { img: corte6, label: '' },
 ];
 
 // ── ALTERAÇÃO 1: Stats atualizadas ───────────────────────────────────────────
