@@ -19,7 +19,7 @@ const TEAM = [
     img: barber1,
     name: 'Anderson',
     desc: 'Especialista em penteados e freestyle, trazendo criatividade e estilo em cada detalhe para criar visuais únicos e personalizados.',
-    instagram: '@Anderso.fi2023',
+    instagram: '@Anderson.fi2023',
     whatsapp: '5514997086533',
   },
    {
